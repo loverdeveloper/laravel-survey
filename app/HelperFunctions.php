@@ -2,7 +2,9 @@
 
 function toPersian($date)
 {
-    if (!typeOf($date) == "date" OR !typeOf($date) == "datetime") {
+    /** @var array $allowTypes Allowed Types of input value */
+    $allowTypes = ['date','datetime'];
+    if (!in_array($date,$allowTypes)) {
         return false;
     }
     return jdate(date_create($date));
